@@ -21,12 +21,14 @@ def generate():
     random_double_word_1 = str(random_book_1() + random_book_2())
     random_double_word_2 = str(random_book_2() + random_book_1())
     random_number = random_double_word_1 + str(random_number_1) + random_double_word_2
-    print(random_number)
-
-
+    words = random_number.split()
+    for i, word in enumerate(map(list, words)):
+        random.shuffle(word)
+        words[i] = ''.join(word)
+    print(*words)
 def main():
     while True:
-        print('print accept to generate a random password, or exit to exit')
+        print('print accept to generate a random password, or exit')
         x = input()
         if x == "accept":
             generate()
